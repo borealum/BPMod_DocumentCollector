@@ -1,0 +1,444 @@
+Name inGame;Name forHumans;Type;Category;Dynamic text
+A NEW CLUE DRAFT - DOC;A New Clue Draft;NORMAL;Books;
+BLUE PRINCE DRAFT - DOC;Blue Prince Draft;NORMAL;Books;
+BUNK JOUNRAL - doc;Bunk Jounral;NORMAL;Books;
+CURSE OF BLACKBRIDGE - doc;Curse Of Blackbridge;NORMAL;Books;
+DIARY - doc;Diary;NORMAL;Books;
+DRAFTING STRATEGY VOL 1 - doc;Drafting Strategy Vol 1;NORMAL;Books;
+DRAFTING STRATEGY VOL 2 - doc;Drafting Strategy Vol 2;NORMAL;Books;
+DRAFTING STRATEGY VOL 3 - doc;Drafting Strategy Vol 3;NORMAL;Books;
+DRAFTING STRATEGY VOL 4 - doc;Drafting Strategy Vol 4;NORMAL;Books;
+DRAFTING STRATEGY VOL 5 - doc;Drafting Strategy Vol 5;NORMAL;Books;
+FIXED STARS - doc;Fixed Stars;NORMAL;Books;
+Gardener's Logbook - doc;Gardener's Logbook;NORMAL;Books;
+HISTORY OF ORINDIA - doc;History Of Orindia;NORMAL;Books;
+HISTORY OF ORINDIA first edition - doc;History Of Orindia First Edition;NORMAL;Books;
+LIBRARY BOOK  - doc;Library Book;NORMAL;Books;
+LIBRARY BOOK2  - doc;Library Book2;NORMAL;Books;
+MT HOLLY RECORDS - doc;Mt Holly Records;NORMAL;Books;
+MT HOLLY SCRAPBOOK - doc;Mt Holly Scrapbook;NORMAL;Books;
+PUMP MANUAL - doc;Pump Manual;NORMAL;Books;
+REALM & RUIN  - doc;Realm & Ruin;NORMAL;Books;
+REALM & RUNE  - doc;Realm & Rune;NORMAL;Books;
+RED PRINCE - doc;Red Prince;NORMAL;Books;
+RED PRINCE DRAFT - DOC;Red Prince Draft;NORMAL;Books;
+REDDINGTON GUIDE - doc;Reddington Guide;NORMAL;Books;
+Revane's Logbook - doc;Revane's Logbook;NORMAL;Books;
+SWIM BIRD - doc;Swim Bird;NORMAL;Books;
+A NEW CLUE - doc;A New Clue;NORMAL;Books;
+castle 1 - doc;castle 1;NORMAL;Chess notes;
+castle 2 - doc;castle 2;NORMAL;Chess notes;
+castle 3 - doc;castle 3;NORMAL;Chess notes;
+castle 4 - doc;castle 4;NORMAL;Chess notes;
+castle 5 - doc;castle 5;NORMAL;Chess notes;
+castle 6 - doc;castle 6;NORMAL;Chess notes;
+castle 7 - doc;castle 7;NORMAL;Chess notes;
+castle 8 - doc;castle 8;NORMAL;Chess notes;
+MORNING PAPER - doc;Morning Paper;DISABLED;Documents;
+A NEW CLUE CLIPPING - doc;A New Clue Clipping;NORMAL;Documents;
+ARCHIVE clippings 1 - doc;Archive Clippings 1;NORMAL;Documents;
+ARCHIVE clippings 2 - doc;Archive Clippings 2;NORMAL;Documents;
+draftingstudio- doc;Atelier Note;NORMAL;Documents;
+BAFFLER 1 - doc;Baffler 1;NORMAL;Documents;
+BAFFLER 2 - doc;Baffler 2;NORMAL;Documents;
+BIRTH CERTIFICATE - doc;Birth Certificate;NORMAL;Documents;
+HOVEL NOTE - doc;Cloister Instructions;NORMAL;Documents;
+DRAFTING CALENDAR - doc;Drafting Calendar;NORMAL;Documents;
+FAMILY TREE - DOC;Family Tree;NORMAL;Documents;
+FOREMANS LOG 102 - doc;Foremans Log 102;NORMAL;Documents;
+FOREMANS LOG 14 - doc;Foremans Log 14;NORMAL;Documents;
+FOREMANS LOG 228 - doc;Foremans Log 228;NORMAL;Documents;
+FOREMANS LOG 289 - doc;Foremans Log 289;NORMAL;Documents;
+FOREMANS LOG 3 - doc;Foremans Log 3;NORMAL;Documents;
+FOREMANS LOG 608 - doc;Foremans Log 608;NORMAL;Documents;
+FOREMANS LOG 621 - doc;Foremans Log 621;NORMAL;Documents;
+FREEZER SERVER - doc;Freezer Server;NORMAL;Documents;
+FURLOUGH NOTICE - doc;Furlough Notice;NORMAL;Documents;
+GEMSTONE - doc;Gemstone;NORMAL;Documents;
+House Grid Sketch - doc;House Grid Sketch;NORMAL;Documents;
+MEMORIAL CARD - doc;Memorial Card;NORMAL;Documents;
+METRO MAP - DOC;Metro Map;NORMAL;Documents;
+MUSEUM MAP - DOC;Museum Map;NORMAL;Documents;
+MUSIC SHEET B - doc;Music Sheet B;NORMAL;Documents;
+MUSIC SHEET G - doc;Music Sheet G;NORMAL;Documents;
+MUSIC SHEET M - doc;Music Sheet M;NORMAL;Documents;
+MUSIC SHEET W - doc;Music Sheet W;NORMAL;Documents;
+NOTICE OF TERMINATION - doc;Notice Of Termination;NORMAL;Documents;
+numeric core - doc;Numeric Core;NORMAL;Documents;
+PASSPORT 1 - doc;Passport 1;NORMAL;Documents;
+PASSPORT 2 - doc;Passport 2;NORMAL;Documents;
+PASSPORT 3 - doc;Passport 3;NORMAL;Documents;
+PATENT - doc;Patent;NORMAL;Documents;
+PERIODIC NUMBERS - doc;Periodic Numbers;NORMAL;Documents;
+PERIODIC TABLE - doc;Periodic Table;NORMAL;Documents;
+POOL RULES - doc;Pool Rules;NORMAL;Documents;
+PUMP MAP - doc;Pump Map;NORMAL;Documents;
+RANSOM NOTE - DOC;Ransom Note;NORMAL;Documents;
+REJECTION - doc;Rejection;NORMAL;Documents;
+CLIPPING single - doc;Root Cellar Clipping;NORMAL;Documents;
+SALE POSTER - doc;Sale Poster;NORMAL;Documents;
+SCHOOL SPEECH - doc;School Speech;NORMAL;Documents;
+THE DEED - DOC;The Deed;NORMAL;Documents;
+THE WILL - DOC;The Will;NORMAL;Documents;
+THE WILL B - DOC;The Will B;NORMAL;Documents;
+TROPHY LIST - doc;Trophy List;NORMAL;Documents;
+UNDERGROUND MAP - doc;Underground Map;NORMAL;Documents;
+UNDERGROUND MAP RIP1 - doc;Underground Map Rip1;NORMAL;Documents;
+UNDERGROUND MAP RIP2 - doc;Underground Map Rip2;NORMAL;Documents;
+UNDERGROUND MAP RIP3 - doc;Underground Map Rip3;NORMAL;Documents;
+Worksheet 2 rip- doc;Worksheet 2 Rip;NORMAL;Documents;
+WORKSHOP SCHEMATIC - doc;Workshop Schematic;NORMAL;Documents;
+class letter - doc;Class Letter;NORMAL;Letters;
+CLOSED EXHIBIT letter - doc;Closed Exhibit Letter;NORMAL;Letters;
+DAD LETTER - doc;Dad Letter;NORMAL;Letters;
+DARE LETTER - doc;Dare Letter;NORMAL;Letters;
+dove letters - doc;Dove Letters;NORMAL;Letters;
+ENTRANCE LETTER - doc;Entrance Letter;NORMAL;Letters;
+ERAJAN LETTER - doc;Erajan Letter;NORMAL;Letters;
+FREEZER LETTER - doc;Freezer Letter;NORMAL;Letters;
+GUEST LETTER - doc;Guest Letter;NORMAL;Letters;
+INHERITRANCE LETTER - doc;Inheritance Letter;NORMAL;Letters;
+LAB LETTER - doc;Lab Letter;NORMAL;Letters;
+LAB LETTER 1 - doc;Lab Letter 1;NORMAL;Letters;
+LAB LETTER 10 - doc;Lab Letter 10;NORMAL;Letters;
+LAB LETTER 11 - doc;Lab Letter 11;NORMAL;Letters;
+LAB LETTER 12 - doc;Lab Letter 12;NORMAL;Letters;
+LAB LETTER 13 - doc;Lab Letter 13;NORMAL;Letters;
+LAB LETTER 14 - doc;Lab Letter 14;NORMAL;Letters;
+LAB LETTER 15 - doc;Lab Letter 15;NORMAL;Letters;
+LAB LETTER 16 - doc;Lab Letter 16;NORMAL;Letters;
+LAB LETTER 2 - doc;Lab Letter 2;NORMAL;Letters;
+LAB LETTER 3 - doc;Lab Letter 3;NORMAL;Letters;
+LAB LETTER 4 - doc;Lab Letter 4;NORMAL;Letters;
+LAB LETTER 5 - doc;Lab Letter 5;NORMAL;Letters;
+LAB LETTER 6 - doc;Lab Letter 6;NORMAL;Letters;
+LAB LETTER 7 - doc;Lab Letter 7;NORMAL;Letters;
+LAB LETTER 8 - doc;Lab Letter 8;NORMAL;Letters;
+LAB LETTER 9 - doc;Lab Letter 9;NORMAL;Letters;
+MOM  LETTER - doc;Mom Letter;NORMAL;Letters;
+PARLOR LETTER - doc;Parlor Letter;NORMAL;Letters;
+SERVANT BEQUEATH - doc;Servant Bequeath;NORMAL;Letters;
+SERVANT LETTER - doc;Servant Letter;NORMAL;Letters;
+SHELTER LETTER - doc;Shelter Letter;NORMAL;Letters;
+SPEAKEASY LETTER - doc;Speakeasy Letter;NORMAL;Letters;
+TOMB LETTER - doc;Tomb Letter;NORMAL;Letters;
+TRADING POST LETTER - doc;Trading Post Letter;NORMAL;Letters;
+UNFINISHED LETTER - doc;Unfinished Letter;NORMAL;Letters;
+VAULT LETTER - doc;Vault Letter;NORMAL;Letters;
+vault LETTER - doc;Vault Letter;NORMAL;Letters;
+MEMO BLUE BEDROOM - doc;Memo Blue Bedroom;DISABLED;Memos;
+BREAK ROOM MEMO BLUE - doc;Break Room Memo Blue;NORMAL;Memos;
+BREAK ROOM MEMO RED - doc;Break Room Memo Red;NORMAL;Memos;
+COMMISSARY MEMO RED - doc;Commissary Memo Red;NORMAL;Memos;
+CONFERENCE NOTE RED - doc;Conference Note Red;NORMAL;Memos;
+DRAFTING NOTE BLUE - doc;Drafting Studio Great Hall Memo;NORMAL;Memos;
+Tent Drafting Memos - doc;Drafting Studio Memo;NORMAL;Memos;
+EMAIL NOTE RED - doc;Email Note Red;NORMAL;Memos;
+hartley memo - doc;Hartley Memo;NORMAL;Memos;
+LAB MEMO BLUE - doc;Lab Memo Blue;NORMAL;Memos;
+locker green memo - doc;Locker Green Memo;NORMAL;Memos;
+MEMO WEIGHTROOM RED - doc;Memo Weightroom Red;NORMAL;Memos;
+NETWORK NOTE BLUE - doc;Network Note Blue;NORMAL;Memos;
+NETWORK NOTE RED - doc;Network Note Red;NORMAL;Memos;
+RED MEMO NOTE - doc;Red Memo Note;NORMAL;Memos;
+WEST WING RED MEMO - doc;West Wing Red Memo;NORMAL;Memos;
+Tent Blue Memos - doc - Aquarium;Memo - Aquarium;BLUE_MEMO;Memos - Blue tents;<size=6>This tank contains a red herring.
+Tent Blue Memos - doc - Attic;Memo - Attic;BLUE_MEMO;Memos - Blue tents;S.H.S was born three years after H.S.S.
+Tent Blue Memos - doc - Ballroom;Memo - Ballroom;BLUE_MEMO;Memos - Blue tents;The majority of gems found in the house are artificially produced.
+Tent Blue Memos - doc - Billiard Room;Memo - Billiard Room;BLUE_MEMO;Memos - Blue tents;The bullseye operation can trigger multiple times.
+Tent Blue Memos - doc - Boiler Room;Memo - Boiler Room;BLUE_MEMO;Memos - Blue tents;<size=5>The high pressure condenser box is connected to not one, but two remote power boxes.
+Tent Blue Memos - doc - Chamber of Mirrors;Memo - Chamber of Mirrors;BLUE_MEMO;Memos - Blue tents;<size=4>If an item would be <i>spread</i> into the CHAMBER OF MIRRORS, four of those items are <i>spread</i> instead.
+Tent Blue Memos - doc - Classroom 1;Memo - Classroom Grade 1;BLUE_MEMO;Memos - Blue tents;<size=5>FLAG COLORS:<br>GREEN for NUANCE.<br>PINK for VERRA.<br>ORANGE for CORARICA.
+Tent Blue Memos - doc - Classroom 2;Memo - Classroom Grade 2;BLUE_MEMO;Memos - Blue tents;<size=5>The figure of eight, in its symbolic guise as <size=7>∞</size><size=.2> </size>, has long served as a vessel of both death and the unfathomable.
+Tent Blue Memos - doc - Classroom 3;Memo - Classroom Grade 3;BLUE_MEMO;Memos - Blue tents;The scientific foundation of architectural drafting, combining advanced principles of spatial suspension and temporal anchoring, was developed and refined at the Pharias High Institute of Corarica at the beginning of their realm's 15th era.
+Tent Blue Memos - doc - Classroom 4;Memo - Classroom Grade 4;BLUE_MEMO;Memos - Blue tents;<size=3.3.>Of the three major expeditions to the South Key, only one party returned.<br>The cartographers among them conducted a cautious survey of the coastline but refrained from making landfall.
+Tent Blue Memos - doc - Classroom 5;Memo - Classroom Grade 5;BLUE_MEMO;Memos - Blue tents;<size=5>The illustrations in The Red Prince and Swim Bird were made by Marion Marigold herself.
+Tent Blue Memos - doc - Classroom 6;Memo - Classroom Grade 6;BLUE_MEMO;Memos - Blue tents;<size=5>The third king of Orindia was the last in the line of Oris.
+Tent Blue Memos - doc - Classroom 7;Memo - Classroom Grade 7;BLUE_MEMO;Memos - Blue tents;<size=4>The three advanced  operations in modern Mathematics are Squaring, Inversion, and Rounding.
+Tent Blue Memos - doc - Classroom 8;Memo - Classroom Grade 8;BLUE_MEMO;Memos - Blue tents;<size=2.34>Lune is the Erajan word for water.<br>Essa is the Erajan word for love.<br>Joro is the Erajan word for father.
+Tent Blue Memos - doc - Classroom exam;Memo - Classroom Exam;BLUE_MEMO;Memos - Blue tents;<size=4>The answer of the exam's final question is equal to its number.
+Tent Blue Memos - doc - Clock Tower;Memo - Clock Tower;BLUE_MEMO;Memos - Blue tents;Inneclipses only appear in the north sky.
+Tent Blue Memos - doc - Closet;Memo - Closet;BLUE_MEMO;Memos - Blue tents;The closet was one of the original 46 rooms of Mount Holly.
+Tent Blue Memos - doc - Coat Check;Memo - Coat Check;BLUE_MEMO;Memos - Blue tents;Coat Check is drawn slightly more often the day after checking a new item.
+Tent Blue Memos - doc - Conference Room;Memo - Conference Room;BLUE_MEMO;Memos - Blue tents;<size=4>Red memos were created by Kirk Darren and approved by the Baron and questionably served as the estate's primary security system.
+Tent Blue Memos - doc - Den;Memo - Den;BLUE_MEMO;Memos - Blue tents;<size=5>The sin associated with this room is often associated with  one's use of time.
+Tent Blue Memos - doc - Dining Room;Memo - Dining Room;BLUE_MEMO;Memos - Blue tents;<size=5.5>There are 10 different dishes that can be served in this room.
+Tent Blue Memos - doc - Dovecote;Memo - Dovecote;BLUE_MEMO;Memos - Blue tents;Three members of the Sinclair family have attended school overseas in Corarica.
+Tent Blue Memos - doc - Drawing Room;Memo - Drawing Room;BLUE_MEMO;Memos - Blue tents;Months are slightly longer than days.
+Tent Blue Memos - doc - Entrance Hall;Memo - Entrance Hall (outdated);BLUE_MEMO;Memos - Blue tents;Above us,<br>blooms the crest<br>of auravei.
+Tent Blue Memos - doc - Freezer;Memo - Freezer;BLUE_MEMO;Memos - Blue tents;<size=5>The ice in Master Sinclair's personal freezer can only be thawed by applying a direct heat source.
+Tent Blue Memos - doc - Gallery;Memo - Gallery;BLUE_MEMO;Memos - Blue tents;THE TITLES ARE SYNONYMS.
+Tent Blue Memos - doc - Garage;Memo - Garage;BLUE_MEMO;Memos - Blue tents;The license plate on this car is an acronym. 
+Tent Blue Memos - doc - Laboratory;Memo - Laboratory;BLUE_MEMO;Memos - Blue tents;<size=2.7> SYNKA INC. founded in 1933, has two facilities - Synka Labs in Reddington and Synka Court,<br>a 16-story facility located in downtown Oris. FEATURING<br>8 floors above ground, AND<br>8 floors below ground.
+Tent Blue Memos - doc - Library;Memo - Library;BLUE_MEMO;Memos - Blue tents;<size=5.9>If you have a HALL PASS, BOOKSHOP will be more likely to be drawn while drafting in the LIBRARY.
+Tent Blue Memos - doc - Locker Room;Memo - Locker Room;BLUE_MEMO;Memos - Blue tents;<size=6> THE MEMO NEXT<br>TO THIS IS A LIE.
+Tent Blue Memos - doc - Mail Room;Memo - Mail Room;BLUE_MEMO;Memos - Blue tents;<size=4>Only six of the notorious "red letters" were addressed to HERBERT S. Sinclair.
+Tent Blue Memos - doc - Mechanarium;Memo - Mechanarium;BLUE_MEMO;Memos - Blue tents;<size=4>On the coat of arms, the first number is one numeral. The rest are each two numerals.
+Tent Blue Memos - doc - Music Room;Memo - Music Room;BLUE_MEMO;Memos - Blue tents;There is a Major Key hanging on a wall in the Safehouse.
+Tent Blue Memos - doc - Nook;Memo - Nook;BLUE_MEMO;Memos - Blue tents;THE ROOK CAN PERFORM A SPECIAL MOVE WITH ANOTHER PIECE.
+Tent Blue Memos - doc - Observatory;Memo - Observatory;BLUE_MEMO;Memos - Blue tents;<size=5>The largest planet in the night sky is named after the paragon of ash.
+Tent Blue Memos - doc - Office;Memo - Office;BLUE_MEMO;Memos - Blue tents;The King can castle by swapping with another piece.
+Tent Blue Memos - doc - Pantry;Memo - Pantry;BLUE_MEMO;Memos - Blue tents;"There is a letter missing."
+Tent Blue Memos - doc - Parlor;Memo - Parlor;BLUE_MEMO;Memos - Blue tents;The gems are in the blue box.
+Tent Blue Memos - doc - Planetarium;Memo - Planetarium;BLUE_MEMO;Memos - Blue tents;<size=7>The Ink Well is not the largest constellation.
+Tent Blue Memos - doc - Pump Room;Memo - Pump Room;BLUE_MEMO;Memos - Blue tents;<size=3.5>The massive reservoir below Mount Holly receives a natural filtration from the continuous flow of fresh water from two neighboring underground springs, before making its dramatic exit via a waterfall on the south-facing cliff.
+Tent Blue Memos - doc - Room 8;Memo - Room 8;BLUE_MEMO;Memos - Blue tents;THE ELEPHANT<br>BELONGS IN<br>THIS BIN.
+Tent Blue Memos - doc - Rotunda;Memo - Rotunda;BLUE_MEMO;Memos - Blue tents;There are 4 different methods to rotate rooms.
+Tent Blue Memos - doc - Rumpus Room;Memo - Rumpus Room;BLUE_MEMO;Memos - Blue tents;The real Alzara was an Erajan soothsayer who belonged to the royal court of Aries. He was banished from the realm in the fifteenth year of Ejera for a prophecy that did not come to pass.
+Tent Blue Memos - doc - Sauna;Memo - Sauna;BLUE_MEMO;Memos - Blue tents;<size=6>Saunas are commonplace in both businesses and residences in Corarica.
+Tent Blue Memos - doc - Security;Memo - Security;BLUE_MEMO;Memos - Blue tents;<size=5>Surveillance recordings can only be accessed via the terminal located in Security.
+Tent Blue Memos - doc - Spare Room;Memo - Spare room;BLUE_MEMO;Memos - Blue tents;There are 12 different potential spare room upgrades.
+Tent Blue Memos - doc - Storeroom;Memo - Storeroom;BLUE_MEMO;Memos - Blue tents;There are six permanent additions.
+Tent Blue Memos - doc - Study;Memo - Study;BLUE_MEMO;Memos - Blue tents;<size=7>The chess board in this room contains a portmanteau.
+Tent Blue Memos - doc - The Foundation ;Memo - The Foundation;BLUE_MEMO;Memos - Blue tents;<size=3.5>Despite the Directory being reorganized and renumbered several times throughout the years, THE FOUNDATION has always maintained its position as the first floorplan of mount holly.
+Tent Blue Memos - doc - The Foundation B;Memo - The Foundation B;BLUE_MEMO;Memos - Blue tents;There are six permanent additions.
+Tent Blue Memos - doc - The Kennel;Memo - The Kennel;BLUE_MEMO;Memos - Blue tents;<size=3.2>Sinclair's four canine companions are named Carter, Thoughtless, Hot Sauce and Drawbridge.
+Tent Blue Memos - doc - The Pool;Memo - The Pool;BLUE_MEMO;Memos - Blue tents;<size=4.9>There is only one location in the estate where every room in the drafting pool can be drafted.
+Tent Blue Memos - doc - Throne Room;Memo - Throne Room;BLUE_MEMO;Memos - Blue tents;The Family Core is kept in the Family Vault.
+Tent Blue Memos - doc - Trophy Room;Memo - Trophy Room;BLUE_MEMO;Memos - Blue tents;There were a total of eight gems removed from the Ruby Crown of Orinda Aries.
+Tent Blue Memos - doc - Utility Closet;Memo - Utility Closet;BLUE_MEMO;Memos - Blue tents;<size=3>D.C. Power's designs for the V.A.C controls were partly inspired by the gift they received from their client:<br>An original Mora Jai box.
+Tent Blue Memos - doc - Vault;Memo - Vault;BLUE_MEMO;Memos - Blue tents;<size=6.3>THE FAMILY CORE<br>IS UNLOCKED ONLY BY THE SUM OF<br>ITS DIGITS.
+Tent Blue Memos - doc - Walk-In Closet;Memo - Walk-In Closet;BLUE_MEMO;Memos - Blue tents;Her Ladyship Clara Epsen was laid to rest on the 11th of june 1983.
+Tent Blue Memos - doc - Wine Cellar;Memo - Wine Cellar;BLUE_MEMO;Memos - Blue tents;The numerals below the Coat of Arms are four different numbers, <br>not one.
+Tent Blue Memos - doc - Workshop;Memo - Workshop;BLUE_MEMO;Memos - Blue tents;<size=4.5>Certain rooms, like Mechanical rooms, are more likely to contain security doors.
+CLOCK 1 - doc;CLOCK 1;NORMAL;Memos - Clocks;
+CLOCK 2 - doc;CLOCK 2;NORMAL;Memos - Clocks;
+CLOCK 3 - doc;CLOCK 3;NORMAL;Memos - Clocks;
+CLOCK 4 - doc;CLOCK 4;NORMAL;Memos - Clocks;
+CLOCK 5 - doc;CLOCK 5;NORMAL;Memos - Clocks;
+CLOCK 6 - doc;CLOCK 6;NORMAL;Memos - Clocks;
+CLOCK 7 - doc;CLOCK 7;NORMAL;Memos - Clocks;
+CLOCK 8 - doc;CLOCK 8;NORMAL;Memos - Clocks;
+MEMO BLUE1 - doc;MEMO BLUE1;NORMAL;Memos - Reservoir;
+MEMO BLUE2 - doc;MEMO BLUE2;NORMAL;Memos - Reservoir;
+MEMO BLUE3 - doc;MEMO BLUE3;NORMAL;Memos - Reservoir;
+MEMO BLUE4 - doc;MEMO BLUE4;NORMAL;Memos - Reservoir;
+MEMO BLUE5 - doc;MEMO BLUE5;NORMAL;Memos - Reservoir;
+MEMO BLUE6 - doc;MEMO BLUE6;NORMAL;Memos - Reservoir;
+MEMO BLUE7 - doc;MEMO BLUE7;NORMAL;Memos - Reservoir;
+MEMO BLUE8 - doc;MEMO BLUE8;NORMAL;Memos - Reservoir;
+MEMO BLUE9 - doc;MEMO BLUE9;NORMAL;Memos - Reservoir;
+MEMO GREEN1 - doc;MEMO GREEN1;NORMAL;Memos - Reservoir;
+MEMO GREEN2 - doc;MEMO GREEN2;NORMAL;Memos - Reservoir;
+MEMO GREEN3 - doc;MEMO GREEN3;NORMAL;Memos - Reservoir;
+MEMO GREEN4 - doc;MEMO GREEN4;NORMAL;Memos - Reservoir;
+MEMO GREEN5 - doc;MEMO GREEN5;NORMAL;Memos - Reservoir;
+MEMO GREEN6 - doc;MEMO GREEN6;NORMAL;Memos - Reservoir;
+MEMO GREEN7 - doc;MEMO GREEN7;NORMAL;Memos - Reservoir;
+MEMO GREEN8 - doc;MEMO GREEN8;NORMAL;Memos - Reservoir;
+MEMO RED1 - doc;MEMO RED1;NORMAL;Memos - Reservoir;
+MEMO RED2 - doc;MEMO RED2;NORMAL;Memos - Reservoir;
+MEMO RED3 - doc;MEMO RED3;NORMAL;Memos - Reservoir;
+MEMO RED4 - doc;MEMO RED4;NORMAL;Memos - Reservoir;
+MEMO RED5 - doc;MEMO RED5;NORMAL;Memos - Reservoir;
+MEMO RED6 - doc;MEMO RED6;NORMAL;Memos - Reservoir;
+MEMO RED7 - doc;MEMO RED7;NORMAL;Memos - Reservoir;
+MEMO trove01 - doc;MEMO trove01;NORMAL;Memos - Treasure Trove;
+MEMO trove02 - doc;MEMO trove02;NORMAL;Memos - Treasure Trove;
+MEMO trove03 - doc;MEMO trove03;NORMAL;Memos - Treasure Trove;
+MEMO trove04 - doc;MEMO trove04;NORMAL;Memos - Treasure Trove;
+MEMO trove05 - doc;MEMO trove05;NORMAL;Memos - Treasure Trove;
+MEMO trove06 - doc;MEMO trove06;NORMAL;Memos - Treasure Trove;
+MEMO trove07 - doc;MEMO trove07;NORMAL;Memos - Treasure Trove;
+MEMO trove08 - doc;MEMO trove08;NORMAL;Memos - Treasure Trove;
+MEMO trove09 - doc;MEMO trove09;NORMAL;Memos - Treasure Trove;
+MEMO trove10 - doc;MEMO trove10;NORMAL;Memos - Treasure Trove;
+MEMO trove11 - doc;MEMO trove11;NORMAL;Memos - Treasure Trove;
+MEMO trove12 - doc;MEMO trove12;NORMAL;Memos - Treasure Trove;
+MEMO trove13 - doc;MEMO trove13;NORMAL;Memos - Treasure Trove;
+MEMO trove14 - doc;MEMO trove14;NORMAL;Memos - Treasure Trove;
+MEMO trove15 - doc;MEMO trove15;NORMAL;Memos - Treasure Trove;
+MEMO trove16 - doc;MEMO trove16;NORMAL;Memos - Treasure Trove;
+MEMO trove17 - doc;MEMO trove17;NORMAL;Memos - Treasure Trove;
+MEMO trove18 - doc;MEMO trove18;NORMAL;Memos - Treasure Trove;
+MEMO trove19 - doc;MEMO trove19;NORMAL;Memos - Treasure Trove;
+MEMO trove20 - doc;MEMO trove20;NORMAL;Memos - Treasure Trove;
+MEMO trove21 - doc;MEMO trove21;NORMAL;Memos - Treasure Trove;
+MEMO trove22 - doc;MEMO trove22;NORMAL;Memos - Treasure Trove;
+MEMO trove23 - doc;MEMO trove23;NORMAL;Memos - Treasure Trove;
+MEMO trove24 - doc;MEMO trove24;NORMAL;Memos - Treasure Trove;
+MEMO trove25 - doc;MEMO trove25;NORMAL;Memos - Treasure Trove;
+MEMO trove26 - doc;MEMO trove26;NORMAL;Memos - Treasure Trove;
+MEMO trove27 - doc;MEMO trove27;NORMAL;Memos - Treasure Trove;
+MEMO trove28 - doc;MEMO trove28;NORMAL;Memos - Treasure Trove;
+MEMO trove29 - doc;MEMO trove29;NORMAL;Memos - Treasure Trove;
+MEMO trove30 - doc;MEMO trove30;NORMAL;Memos - Treasure Trove;
+MEMO trove31 - doc;MEMO trove31;NORMAL;Memos - Treasure Trove;
+MEMO trove32 - doc;MEMO trove32;NORMAL;Memos - Treasure Trove;
+MEMO trove33 - doc;MEMO trove33;NORMAL;Memos - Treasure Trove;
+MEMO trove34 - doc;MEMO trove34;NORMAL;Memos - Treasure Trove;
+MEMO trove35 - doc;MEMO trove35;NORMAL;Memos - Treasure Trove;
+MEMO trove36 - doc;MEMO trove36;NORMAL;Memos - Treasure Trove;
+MEMO trove37 - doc;MEMO trove37;NORMAL;Memos - Treasure Trove;
+MEMO trove38 - doc;MEMO trove38;NORMAL;Memos - Treasure Trove;
+MEMO trove39 - doc;MEMO trove39;NORMAL;Memos - Treasure Trove;
+MEMO trove40 - doc;MEMO trove40;NORMAL;Memos - Treasure Trove;
+MEMO trove41 - doc;MEMO trove41;NORMAL;Memos - Treasure Trove;
+MEMO trove42 - doc;MEMO trove42;NORMAL;Memos - Treasure Trove;
+MEMO trove43 - doc;MEMO trove43;NORMAL;Memos - Treasure Trove;
+MEMO trove44 - doc;MEMO trove44;NORMAL;Memos - Treasure Trove;
+MEMO trove45 - doc;MEMO trove45;NORMAL;Memos - Treasure Trove;
+MEMO trove46 - doc;MEMO trove46;NORMAL;Memos - Treasure Trove;
+MORA JAI ARCH ARIES - doc;MORA JAI ARCH ARIES;NORMAL;Mora Jai notes;
+MORA JAI CORARICA - doc;MORA JAI CORARICA;NORMAL;Mora Jai notes;
+MORA JAI ERAJA - doc;MORA JAI ERAJA;NORMAL;Mora Jai notes;
+MORA JAI FENN ARIES - doc;MORA JAI FENN ARIES;NORMAL;Mora Jai notes;
+MORA JAI INTRO - doc;MORA JAI INTRO;NORMAL;Mora Jai notes;
+MORA JAI NUANCE - doc;MORA JAI NUANCE;NORMAL;Mora Jai notes;
+MORA JAI ORINDA ARIES - doc;MORA JAI ORINDA ARIES;NORMAL;Mora Jai notes;
+MORA JAI VERRA - doc;MORA JAI VERRA;NORMAL;Mora Jai notes;
+PACKING SLIP;Packing Slip;DISABLED;Notes;
+ALLOWANCE - doc;Allowance;NORMAL;Notes;
+ANTECHAMBER MAP - doc;Antechamber Map;NORMAL;Notes;
+Antechamber Note - doc;Antechamber Note;NORMAL;Notes;
+Antechamber Note 2 - doc;Antechamber Note 2;NORMAL;Notes;
+binary - doc;Binary;NORMAL;Notes;
+bppathend - doc;Bppathend;NORMAL;Notes;
+car note - doc;Car Note;NORMAL;Notes;
+CHESS SCRIBBLING - doc;Chess Scribbling;NORMAL;Notes;
+clocktower note - doc;Clocktower Note;NORMAL;Notes;
+Cloister Note - doc;Cloister Note;NORMAL;Notes;
+CONFERENCE NOTEPAD - doc;Conference Notepad;NORMAL;Notes;
+conservatory Note - doc;Conservatory Note;NORMAL;Notes;
+denoted - doc;Denoted;NORMAL;Notes;
+FOUNDATION MAP - doc;Foundation Map;NORMAL;Notes;
+FREEZER LID - doc;Freezer Lid;NORMAL;Notes;
+FUSEBOX NOTE - doc;Fusebox Note;NORMAL;Notes;
+garage Note - doc;Garage Note;NORMAL;Notes;
+grid note - doc;Grid Note;NORMAL;Notes;
+HUNDRED BELLS - doc;Hundred Bells;NORMAL;Notes;
+investor - doc;Investor;NORMAL;Notes;
+crow food - doc;Kennel Note;NORMAL;Notes;
+LAB NOTE cooling curve - doc;Lab Note Cooling Curve;NORMAL;Notes;
+LADYSHIPS NOTE - doc;Ladyships Note;NORMAL;Notes;
+locker note - doc;Locker Note;NORMAL;Notes;
+tr note - doc;Lost & Found Note;NORMAL;Notes;
+MAILROOM NOTEPAD - doc;Mailroom Notepad;NORMAL;Notes;
+MONK NOTE 2 - doc;Monk Note 2;NORMAL;Notes;
+MONK NOTE PIECE - doc;Monk Note Piece;NORMAL;Notes;
+OFFICE LIST - doc;Office List;NORMAL;Notes;
+OFFICE NOTE - doc;Office Note;NORMAL;Notes;
+PANTRY LIST - doc;Pantry List;NORMAL;Notes;
+PAYROLL SLIP - doc;Payroll Slip;NORMAL;Notes;
+print notes - doc;Print Notes;NORMAL;Notes;
+REPELLENT letter - doc;Repellent Letter;NORMAL;Notes;
+SANCTUM NOTE - doc;Sanctum Note;NORMAL;Notes;
+Security Monitors - doc;Security Monitors;NORMAL;Notes;
+Security Monitors A - doc;Security Monitors A;NORMAL;Notes;
+STAFF NOTICE - doc;Staff Notice;NORMAL;Notes;
+STAR SCHEDULE - doc;Star Schedule;NORMAL;Notes;
+STUDY NOTE - doc;Study Note;NORMAL;Notes;
+STUDY SCRIBBLING - doc;Study Scribbling;NORMAL;Notes;
+THE SAIL - doc;The Sail;NORMAL;Notes;
+throne note - doc;Throne Note;NORMAL;Notes;
+Tomb Note - doc;Tomb Note;NORMAL;Notes;
+WEST STAFF NOTICE - doc;West Staff Notice;NORMAL;Notes;
+aura vei photo - frame;Aura Vei Photo;NORMAL;Photos;
+ballroom photo - frame;Ballroom Photo;NORMAL;Photos;
+bedroom photo - frame;Bedroom Photo;NORMAL;Photos;
+Boudoir Photo - pic;Boudoir Photo;NORMAL;Photos;
+dark anne 1 - pic;Dark Anne 1;NORMAL;Photos;
+dark hartley 1 - pic;Dark Hartley 1;NORMAL;Photos;
+dark hartley 2 - pic;Dark Hartley 2;NORMAL;Photos;
+dark maids 1 - pic;Dark Maids 1;NORMAL;Photos;
+dark maids 2 - pic;Dark Maids 2;NORMAL;Photos;
+dark maids 3 - pic;Dark Maids 3;NORMAL;Photos;
+gate photo - pic;Gate Photo;NORMAL;Photos;
+Gold Locket - frame;Gold Locket;NORMAL;Photos;
+lady epsen 1 - pic;Lady Epsen 1;NORMAL;Photos;
+lady epsen 2 - pic;Lady Epsen 2;NORMAL;Photos;
+LASY ASHLYNN PHOTO - frame;Lasy Ashlynn Photo;NORMAL;Photos;
+LORD EPSEN PHOTO - frame;Lord Epsen Photo;NORMAL;Photos;
+MARION - frame;Marion;NORMAL;Photos;
+Ruffington Red - pic;Ruffington Red;NORMAL;Photos;
+SIMON CLARA - frame;Simon Clara;NORMAL;Photos;
+sinclair 1 - pic;Sinclair 1;NORMAL;Photos;
+sinclair 1 hot - pic;Sinclair 1 Hot;NORMAL;Photos;
+sinclair 2 - pic;Sinclair 2;NORMAL;Photos;
+sinclair 3 - pic;Sinclair 3;NORMAL;Photos;
+sinclair 4 - pic;Sinclair 4;NORMAL;Photos;
+sinclair 5 - pic;Sinclair 5;NORMAL;Photos;
+staff - frame;Staff;NORMAL;Photos;
+SWIN  BIRD SKETCH - pic;Swin Bird Sketch;NORMAL;Photos;
+TOMAS - frame;Tomas;NORMAL;Photos;
+ETT WORLD MAP - doc;World Map Ett;NORMAL;Photos;
+ORR WORLD MAP - doc;World Map Orr;NORMAL;Photos;
+POSTCARD ARCH ARIES - DOC;POSTCARD ARCH ARIES;NORMAL;Postcards;
+POSTCARD CORARICA - DOC;POSTCARD CORARICA;NORMAL;Postcards;
+POSTCARD ERAJA - DOC;POSTCARD ERAJA;NORMAL;Postcards;
+POSTCARD FENN - DOC;POSTCARD FENN;NORMAL;Postcards;
+POSTCARD MORA JAI - DOC;POSTCARD MORA JAI;NORMAL;Postcards;
+POSTCARD NUANCE - DOC;POSTCARD NUANCE;NORMAL;Postcards;
+POSTCARD ORINDA - DOC;POSTCARD ORINDA;NORMAL;Postcards;
+POSTCARD VERRA - DOC;POSTCARD VERRA;NORMAL;Postcards;
+Postcard Xmas - pic;Postcard Xmas;NORMAL;Postcards;
+Postcard5letter - pic;Postcard5letter;NORMAL;Postcards;
+Postcard6letter - pic;Postcard6letter;NORMAL;Postcards;
+Postcard7letter - pic;Postcard7letter;NORMAL;Postcards;
+Postcard8letter - pic;Postcard8letter;NORMAL;Postcards;
+PostcardMtHolly - pic;PostcardMtHolly;NORMAL;Postcards;
+PostcardReddinton - pic;PostcardReddinton;NORMAL;Postcards;
+PostcardStars - pic;PostcardStars;NORMAL;Postcards;
+PostcardStumped - pic;PostcardStumped;NORMAL;Postcards;
+RED LETTER BOMB SHELTER - doc;RED LETTER BOMB SHELTER;NORMAL;Red letters;
+RED LETTER BOUDOIR - doc;RED LETTER BOUDOIR;NORMAL;Red letters;
+RED LETTER DRAWING - doc;RED LETTER DRAWING;NORMAL;Red letters;
+RED LETTER OFFICE - doc;RED LETTER OFFICE;NORMAL;Red letters;
+RED LETTER STUDY - doc;RED LETTER STUDY;NORMAL;Red letters;
+RED LETTER UNDERGROUND - doc;RED LETTER UNDERGROUND;NORMAL;Red letters;
+BLUE MEMO SPAWN;BLUE MEMO SPAWN;DISABLED;Special;
+bpcardtext - doc;bpcardtext;DISABLED;Special;
+DIARYclosed - doc;DIARYclosed;DISABLED;Special;
+EXAM RESULTS - doc;EXAM RESULTS;DISABLED;Special;
+GREEN MEMO SPAWN;GREEN MEMO SPAWN;DISABLED;Special;
+GUESS BEDROOM - doc;GUESS BEDROOM;DISABLED;Special;
+HIDDEN RIDDLE - doc;HIDDEN RIDDLE;DISABLED;Special;
+letter box - frame;letter box - frame;DISABLED;Special;
+LIBRARY REQUEST - doc;LIBRARY REQUEST;DISABLED;Special;
+LIBRARY REQUEST 2 - doc;LIBRARY REQUEST 2;DISABLED;Special;
+no scrap - doc;no scrap;DISABLED;Special;
+RED MEMO SPAWN;RED MEMO SPAWN;DISABLED;Special;
+SWEEPSTAKES - doc;SWEEPSTAKES;DISABLED;Special;
+Classroom Final Exam - doc;Classroom Final Exam;NORMAL;Special;
+DRAWING TIP - doc;DRAWING TIP;NORMAL;Tips;
+ENTRANCE TIP - doc;ENTRANCE TIP;NORMAL;Tips;
+LIBRARY TIP - doc;LIBRARY TIP;NORMAL;Tips;
+NOOK TIP - doc;NOOK TIP;NORMAL;Tips;
+SPREAD TIP - doc;SPREAD TIP;NORMAL;Tips;
+TIP PATIO - doc;TIP PATIO;NORMAL;Tips;
+Worksheet 1 blank - doc;Worksheet 1 blank;NORMAL;Worksheets;
+Worksheet 1a - doc;Worksheet 1a;NORMAL;Worksheets;
+Worksheet 1b - doc;Worksheet 1b;NORMAL;Worksheets;
+Worksheet 1c - doc;Worksheet 1c;NORMAL;Worksheets;
+Worksheet 1d - doc;Worksheet 1d;NORMAL;Worksheets;
+Worksheet 2 blank - doc;Worksheet 2 blank;NORMAL;Worksheets;
+Worksheet 2a - doc;Worksheet 2a;NORMAL;Worksheets;
+Worksheet 2b - doc;Worksheet 2b;NORMAL;Worksheets;
+Worksheet 2c - doc;Worksheet 2c;NORMAL;Worksheets;
+Worksheet 2d - doc;Worksheet 2d;NORMAL;Worksheets;
+Worksheet 3 blank - doc;Worksheet 3 blank;NORMAL;Worksheets;
+Worksheet 3a - doc;Worksheet 3a;NORMAL;Worksheets;
+Worksheet 3b - doc;Worksheet 3b;NORMAL;Worksheets;
+Worksheet 3c - doc;Worksheet 3c;NORMAL;Worksheets;
+Worksheet 4 blank - doc;Worksheet 4 blank;NORMAL;Worksheets;
+Worksheet 4a - doc;Worksheet 4a;NORMAL;Worksheets;
+Worksheet 4b - doc;Worksheet 4b;NORMAL;Worksheets;
+Worksheet 4c - doc;Worksheet 4c;NORMAL;Worksheets;
+Worksheet 4d - doc;Worksheet 4d;NORMAL;Worksheets;
+Worksheet 5 blank - doc;Worksheet 5 blank;NORMAL;Worksheets;
+Worksheet 5a - doc;Worksheet 5a;NORMAL;Worksheets;
+Worksheet 5b - doc;Worksheet 5b;NORMAL;Worksheets;
+Worksheet 5c - doc;Worksheet 5c;NORMAL;Worksheets;
+Worksheet 6 blank - doc;Worksheet 6 blank;NORMAL;Worksheets;
+Worksheet 6a - doc;Worksheet 6a;NORMAL;Worksheets;
+Worksheet 6b - doc;Worksheet 6b;NORMAL;Worksheets;
+Worksheet 6c - doc;Worksheet 6c;NORMAL;Worksheets;
+Worksheet 6d - doc;Worksheet 6d;NORMAL;Worksheets;
+Worksheet 7 blank - doc;Worksheet 7 blank;NORMAL;Worksheets;
+Worksheet 7a - doc;Worksheet 7a;NORMAL;Worksheets;
+Worksheet 7b - doc;Worksheet 7b;NORMAL;Worksheets;
+Worksheet 7c - doc;Worksheet 7c;NORMAL;Worksheets;
+Worksheet 8 blank - doc;Worksheet 8 blank;NORMAL;Worksheets;
+Worksheet 8a - doc;Worksheet 8a;NORMAL;Worksheets;
+Worksheet 8b - doc;Worksheet 8b;NORMAL;Worksheets;
+Worksheet 8c - doc;Worksheet 8c;NORMAL;Worksheets;
