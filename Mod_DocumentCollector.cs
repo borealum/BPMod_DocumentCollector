@@ -34,7 +34,7 @@ namespace BPMod_DocumentCollector
         String allwaysMagnifyID = "BPMod_DocumentCollector_allwaysMagnify";
         public static MelonPreferences_Entry<bool> allwaysMagnify;
 
-        private string csvFilename = "documentsMetadata.csv";
+        private string documentsFilename = "documentsMetadata.csv";
         private static List<DocumentRecord> documentRecords;
         private static Dictionary<string, DocumentRecord> documentRecordsMap;
         string documentsPath = "UI OVERLAY CAM/UI Documents/DOCUMENTS";
@@ -44,6 +44,8 @@ namespace BPMod_DocumentCollector
         string inventoryPath = "__SYSTEM/Inventory/Inventory (PickedUp)";
         string fpsControllerPath = "__SYSTEM/FPS Home/FPSController - Prince";
         string roomTextPath = "__SYSTEM/HUD/Room Text";
+        string gridPath = "__SYSTEM/THE GRID";
+        string globalManagerPath = "Global Manager";
 
         public static GameObject uiDocumentsGO;
         public static GameObject turnButtonsGO;
@@ -51,8 +53,15 @@ namespace BPMod_DocumentCollector
         public static GameObject roomTextGO;
         public static GameObject magnifyGlassGO;
         public static GameObject inventoryGO;
+        public static GameObject gridGO;
+        public static GameObject globalManagerGO;
 
-        //static Dictionary<String, GameObject> dummyGOsMap = new(); //these exist to replace realworld placed documents
+        //read from csv, I didn't find any great object structure to support searching for the base room name
+        //would probably need to go to "THE GRID".current tile.room engine then get parent name? but that's meh
+        private string upgradesFilename = "upgradesMetadata.csv";
+        public static Dictionary<string, string> upgradeToRoomMap;
+
+        //static Dictionary<String, GameObject> dummyGOsMap = new(); //these exist to replace realworld placed documents to carry object name and to activate/deactivate when opening an UI document
         public static MenuTreeView menuTreeView = new MenuTreeView();
 
         public override void OnInitializeMelon()
@@ -74,15 +83,18 @@ namespace BPMod_DocumentCollector
             LoggerInstance.Msg($"{showAllDocsID} = {showAllDocs.Value}");
 
             string modFolder = Path.Combine(MelonEnvironment.UserDataDirectory, categoryID);
-            string csvPath = Path.Combine(modFolder, csvFilename);
+            string csvPath = Path.Combine(modFolder, documentsFilename);
 
             documentRecordsMap = CSVReader.ReadCSV(csvPath);
             LoggerInstance.Msg($"found records in csv: {documentRecordsMap.Count}");
             documentRecords = documentRecordsMap
-                       .OrderBy(kvp => kvp.Value.Category)
+                       .OrderBy(kvp => kvp.Value.DocumentCategory)
                        .ThenBy(kvp => kvp.Value.Name)
                        .Select(kvp => kvp.Value)
                        .ToList();
+
+            csvPath = Path.Combine(modFolder, upgradesFilename);
+            upgradeToRoomMap = CSVReader.ReadUpgradesCSV(csvPath);
         }
 
         public override void OnSceneWasLoaded(int buildIndex, string sceneName)
@@ -109,6 +121,8 @@ namespace BPMod_DocumentCollector
                 roomTextGO = GameObject.Find(roomTextPath);
                 magnifyGlassGO = GameObject.Find(magnifyGlassPath);
                 inventoryGO = GameObject.Find(inventoryPath);
+                gridGO = GameObject.Find(gridPath);
+                globalManagerGO = GameObject.Find(globalManagerPath);
 
                 Dictionary<string, GameObject> uiDocumentGOsMap = new();
                 GameObject uiDocument;
@@ -126,8 +140,20 @@ namespace BPMod_DocumentCollector
                 //dummyParent = new GameObject("Dummy documents parent");
                 foreach (DocumentRecord record in documentRecords)
                 {
-                    if (!record.Enabled || (!foundDocumentIDsSet.Contains(record.ID) && !showAllDocs.Value)) continue;
-                    uiDocument = uiDocumentGOsMap[record.ID];
+                    uiDocument = null;
+                    if (record.RecordType == DocumentRecordType.DISABLED || (!foundDocumentIDsSet.Contains(record.ID) && !showAllDocs.Value)) continue;
+                    if(record.RecordType == DocumentRecordType.BLUE_MEMO)
+                    {
+                        uiDocument = uiDocumentGOsMap["Tent Blue Memos - doc"];
+                    }
+                    else
+                    {
+                        if (uiDocumentGOsMap.ContainsKey(record.ID))
+                        {
+                            uiDocument = uiDocumentGOsMap[record.ID];
+                        }
+                    }
+                        
                     if (uiDocument == null)
                     {
                         LoggerInstance.Msg($"Didn't find game document with name {record.ID}");
@@ -160,6 +186,21 @@ namespace BPMod_DocumentCollector
             turnButtonsGO.GetComponent<PlayMakerFSM>().SendEvent("activate");
         }
 
+        public static bool CheckHasMagnifyingGlass()
+        {
+            //probalby there's a better way to do this, but meh
+            var t = inventoryGO.GetComponent<PlayMakerArrayListProxy>();
+            foreach (var i in t.arrayList)
+            {
+                var j = i.Cast<GameObject>();
+                if (j.name.Equals("MAGNIFYING GLASS"))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static void DisableArrows()
         {
             turnButtonsGO.GetComponent<PlayMakerFSM>().SendEvent("deactivate");
@@ -181,33 +222,59 @@ namespace BPMod_DocumentCollector
                         {
                             EnableArrows();
                             //saving opened documents to config when they are opened
-                            bool exists = foundDocumentIDsSet.Contains(__instance.name);
-                            if (exists)
+                            string recordID = __instance.name;
+                            if(__instance.name.Equals("Tent Blue Memos - doc"))//workarounds for dynamic texts...
                             {
-                                return;
+                                string room = gridGO.GetComponent<PlayMakerFSM>().FsmVariables.GetFsmString("CURRENT ROOM").Value;//this should be = text displayed bottom right
+                                //in the grid there's also a variable pointing to the current tile and that has the room engine for the tile, but that doesn't really help me 
+                                if (upgradeToRoomMap.ContainsKey(room))
+                                {
+                                    room = upgradeToRoomMap[room];//map upgraded room name to base room name if applicable
+                                }
+                                recordID = string.Concat(recordID, " - ", room);
+                                if (room.Equals("Classroom")){
+                                    //I forgot I'm looking at the UI document, not the world document, need a different approach
+                                    //var parentName = __instance.transform.parent.gameObject.name;//parents are called MEMO CHECK grade 1..8 + exam
+                                    //most comfortable way I could think of, find it in the game world...
+                                    var memoCheckGO = FindClosestWithName("MEMO CHECK", fpsControllerGO.transform.position);
+                                    if (memoCheckGO!=null)
+                                    {
+                                        var parentName = memoCheckGO.name;
+                                        recordID = string.Concat(recordID, " ", parentName.AsSpan(parentName.LastIndexOf(' ') + 1));
+                                    }
+                                }
                             }
-                            foundDocumentIDsSet.Add(__instance.name);
-                            foundDocumentIDsList.Value.Add(__instance.name);
-                            //add to tree hierarchy
-                            DocumentRecord childRecord = documentRecordsMap[__instance.name];
-                            if (childRecord == null)
+
+                            if (!foundDocumentIDsSet.Contains(recordID))
                             {
-                                MelonLogger.Msg(loggerModName + $"Couldn't find a record with ID {__instance.name} inside the metadata csv file. Found document was recorded, but won't be displayed in menu hierarchy.");
-                                //TODO later - create record in csv file?
-                            }
-                            else if (!childRecord.Enabled)
-                            {
-                                MelonLogger.Msg(loggerModName + $"Document ID is set as disabled in csv file. Found document was recorded, but won't be displayed in menu hierarchy.");
-                            }
-                            else
-                            {
-                                menuTreeView.AddRecord(childRecord, __instance);
+                                MelonLogger.Msg($"saving new ID entry into config file: {recordID}");
+                                foundDocumentIDsSet.Add(recordID);
+                                foundDocumentIDsList.Value.Add(recordID);
+                                //add to tree hierarchy
+                                if (!documentRecordsMap.ContainsKey(recordID))
+                                {
+                                    MelonLogger.Msg(loggerModName + $"Couldn't find a record with ID {recordID} inside the metadata csv file. Found document ID will be recorded in config, but won't be displayed in the menu hierarchy.");
+                                    //TODO later - create line in csv file? or too prone to errors...
+                                }
+                                else
+                                {
+                                    DocumentRecord childRecord = documentRecordsMap[recordID];
+                                    if (childRecord.RecordType == DocumentRecordType.DISABLED)
+                                    {
+                                        MelonLogger.Msg(loggerModName + $"Document with ID {recordID} is set as disabled in csv file. Found document ID will be recorded in config, but won't be displayed in the menu hierarchy.");
+                                    }
+                                    else
+                                    {
+                                        menuTreeView.AddRecord(childRecord, __instance);
+                                    }
+                                }
                             }
                             menuTreeView.menuDisabled = true;//disable showing menu when normal document is open to not break stuff
                         }
                         else
                         {
                             DisableArrows();
+                            magnifyGlassGO.GetComponent<PlayMakerFSM>().SendEvent("enable");//"enable" resets+deactivates the mag. glass
                             menuTreeView.menuDisabled = false;
                         }
                         //MelonLogger.Msg($"Patch_SetActive menuDisabled = {menuTreeView.menuDisabled} , instance = {__instance.name}");
@@ -215,52 +282,97 @@ namespace BPMod_DocumentCollector
                 }
             }
         }
+
+        static GameObject FindClosestWithName(string namePart, Vector3 fromPosition)
+        {
+            GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+            GameObject closest = null;
+            float closestDistance = Mathf.Infinity;
+            foreach (GameObject obj in allObjects)
+            {
+                if (!obj.name.Contains(namePart))
+                    continue;
+                float distance = Vector3.Distance(fromPosition, obj.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closest = obj;
+                }
+            }
+            return closest;
+        }
     }
 
     public static class CSVReader
     {
+        static char[] separators = new char[] { ';' };
+
         public static Dictionary<string, DocumentRecord> ReadCSV(string csvPath)
         {
             Dictionary<string, DocumentRecord> data = new();
             var lines = File.ReadAllLines(csvPath);
             if (lines.Length < 2)
                 return data;
-
-            var headers = lines[0].Trim().Split(new char[] { ',', ';' });
+            var headers = lines[0].Trim().Split(separators);
             var columnIndex = new Dictionary<string, int>();
             for (int i = 0; i < headers.Length; i++)
             {
                 columnIndex[headers[i].Trim()] = i;
             }
+            
             for (int i = 1; i < lines.Length; i++)
             {
                 if (string.IsNullOrWhiteSpace(lines[i]))
                     continue;
-                var cols = lines[i].Trim().Split(',');
+                var cols = lines[i].Trim().Split(separators);
                 data.Add(cols[columnIndex["Name inGame"]], new DocumentRecord
                 {
                     ID = cols[columnIndex["Name inGame"]],
                     Name = cols[columnIndex["Name forHumans"]],
-                    Enabled = cols[columnIndex["Enabled"]] == "1",
-                    Category = cols[columnIndex["Category"]]
+                    RecordType = (DocumentRecordType)Enum.Parse(typeof(DocumentRecordType), cols[columnIndex["Type"]]),
+                    DocumentCategory = cols[columnIndex["Category"]],
+                    DynamicText = cols[columnIndex["Dynamic text"]]
                 });
             }
             return data;
         }
+
+        public static Dictionary<string, string> ReadUpgradesCSV(string csvPath)
+        {
+            Dictionary<string, string> data = new();
+            var lines = File.ReadAllLines(csvPath);
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (string.IsNullOrWhiteSpace(lines[i]))
+                    continue;
+                var cols = lines[i].Trim().Split(separators);
+                data.Add(cols[0], cols[1]);
+            }
+            return data;
+        }
+    }
+
+    public enum DocumentRecordType
+    {
+        DISABLED,
+        NORMAL,
+        BLUE_MEMO
     }
 
     public class DocumentRecord
     {
         public string ID { get; set; }
         public string Name { get; set; }
-        public bool Enabled { get; set; }
-        public string Category { get; set; }
-    }
+        public DocumentRecordType RecordType { get; set; }
+        public string DocumentCategory { get; set; }
+        public string DynamicText { get; set; }
+}
 
     public class MenuNode
     {
         public string Label;
         public GameObject uiDocumentGO;
+        public DocumentRecord DocumentRecord;
         public GameObject dummyDocumentGO;
 
         public MenuNode Parent;
@@ -277,6 +389,13 @@ namespace BPMod_DocumentCollector
         public MenuNode WithLabel(string label)
         {
             Label = label;
+            return this;
+        }
+
+        public MenuNode WithRecord(DocumentRecord documentRecord)
+        {
+            DocumentRecord = documentRecord;
+            Label = documentRecord.Name;
             return this;
         }
 
@@ -334,11 +453,11 @@ namespace BPMod_DocumentCollector
         public MenuNode FindAddCategory(DocumentRecord documentRecord)
         {
             MenuNode categoryNode;
-            if (!categoryNodesMap.TryGetValue(documentRecord.Category, out categoryNode))
+            if (!categoryNodesMap.TryGetValue(documentRecord.DocumentCategory, out categoryNode))
             {
-                categoryNode = new MenuNode().WithLabel(documentRecord.Category);
+                categoryNode = new MenuNode().WithLabel(documentRecord.DocumentCategory);
                 rootNode.AddChild(categoryNode);
-                categoryNodesMap.Add(documentRecord.Category, categoryNode);
+                categoryNodesMap.Add(documentRecord.DocumentCategory, categoryNode);
             }
             return categoryNode;
         }
@@ -346,7 +465,7 @@ namespace BPMod_DocumentCollector
         public void AddRecord(DocumentRecord documentRecord, GameObject uiDocument)
         {
             MenuNode categoryNode = FindAddCategory(documentRecord);
-            MenuNode childNode = new MenuNode().WithLabel(documentRecord.Name).WithUIDocument(uiDocument);
+            MenuNode childNode = new MenuNode().WithRecord(documentRecord).WithUIDocument(uiDocument);
             categoryNode.AddChild(childNode);
         }
 
@@ -482,6 +601,7 @@ namespace BPMod_DocumentCollector
         {
             if (openedBook == null)
             {
+                //how it's normally done in-game
                 //PlayMakerFSM playMakerFSM = Mod_PortableLibrary.uiDocumentsGO.GetComponent<PlayMakerFSM>();
                 //Fsm fsm = playMakerFSM.Fsm;
                 //fsm.Variables.GetFsmGameObject("Clicked Document").Value = menuNode.dummyDocumentGO;
@@ -493,21 +613,17 @@ namespace BPMod_DocumentCollector
                 //openedBook = menuNode.dummyDocumentGO;
 
                 openedBook = menuNode.uiDocumentGO;
+                if (menuNode.DocumentRecord.RecordType==DocumentRecordType.BLUE_MEMO)
+                {
+                    //this is set from the text on the world document when opening a blue memo in the game world
+                    globalManagerGO.GetComponent<PlayMakerFSM>().FsmVariables.GetFsmString("TENT MEMO TEXT").Value = menuNode.DocumentRecord.DynamicText;
+                }
                 openedBook.active = true;
                 Mod_DocumentCollector.EnableArrows();
-                var t = inventoryGO.GetComponent<PlayMakerArrayListProxy>();
-                bool haveMag = false;//meh
-                foreach (var i in t.arrayList)
-                {
-                    var j = i.Cast<GameObject>();
-                    if (j.name.Equals("MAGNIFYING GLASS"))
-                    {
-                        haveMag = true;
-                        break;
-                    }
-                }
+                bool haveMag = Mod_DocumentCollector.CheckHasMagnifyingGlass();
                 if (haveMag || allwaysMagnify.Value)
                 {
+                    //magnifyGlassGO.GetComponent<PlayMakerFSM>().SendEvent("enable");//weird state, not sure how it's supposed to be used
                     magnifyGlassGO.active = true;
                 }
                 menuOn = false;
@@ -521,11 +637,12 @@ namespace BPMod_DocumentCollector
                 //Mod_PortableLibrary.uiDocumentsGO.GetComponent<PlayMakerFSM>().SendEvent("disable");//not great? sends quickunfreeze
                 //GameObject.Find(Mod_PortableLibrary.fpsCharPath)?.GetComponent<PlayMakerFSM>()?.SendEvent("QuickFreeze");
 
+                //happens inside uiDocumentsGO.FSM.Reset
                 openedBook.active = false;
                 Mod_DocumentCollector.DisableArrows();
                 //Document Exit.active = false;
-                magnifyGlassGO.active = false;
-                magnifyGlassGO.GetComponent<PlayMakerFSM>()?.SendEvent("enable");//not sure why they do it, maybe to reset it to position?
+                //magnifyGlassGO.active = false;
+                magnifyGlassGO.GetComponent<PlayMakerFSM>()?.SendEvent("enable");//not sure why they do it, maybe to reset it to position? but it deactivates the mag glass...
                 openedBook = null;
                 menuOn = true;
             }
