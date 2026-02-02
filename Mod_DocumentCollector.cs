@@ -20,32 +20,32 @@ namespace BPMod_DocumentCollector
         public static string loggerModName = "BPMod_DocumentCollector - ";
         public static String categoryID = "BPMod_DocumentCollector";
         private static MelonPreferences_Category category;
-        String foundDocumentIDsID = "BPMod_DocumentCollector_foundDocs";
+        private String foundDocumentIDsID = "BPMod_DocumentCollector_foundDocs";
         private static MelonPreferences_Entry<List<String>> foundDocumentIDsList;
         public static HashSet<String> foundDocumentIDsSet;
-        String keyBindingsID = "BPMod_DocumentCollector_keyBindings";
+        private String keyBindingsID = "BPMod_DocumentCollector_keyBindings";
         private static MelonPreferences_Entry<string> keyBindingsJSON;
         public static KeyBindings keyBindings;
 
-        String onlyInLibraryID = "BPMod_DocumentCollector_onlyInLibrary";
+        private String onlyInLibraryID = "BPMod_DocumentCollector_onlyInLibrary";
         public static MelonPreferences_Entry<bool> onlyInLibrary;
-        String showAllDocsID = "BPMod_DocumentCollector_showAllDocs";
+        private String showAllDocsID = "BPMod_DocumentCollector_showAllDocs";
         public static MelonPreferences_Entry<bool> showAllDocs;
-        String allwaysMagnifyID = "BPMod_DocumentCollector_allwaysMagnify";
+        private String allwaysMagnifyID = "BPMod_DocumentCollector_allwaysMagnify";
         public static MelonPreferences_Entry<bool> allwaysMagnify;
 
         private string documentsFilename = "documentsMetadata.csv";
         private static List<DocumentRecord> documentRecords;
         private static Dictionary<string, DocumentRecord> documentRecordsMap;
-        string documentsPath = "UI OVERLAY CAM/UI Documents/DOCUMENTS";
-        string uiDocumentsPath = "UI OVERLAY CAM/UI Documents";
-        string turnButtonsPath = "UI OVERLAY CAM/UI Documents/Page Turn Buttons";
-        string magnifyGlassPath = "UI OVERLAY CAM/UI Documents/MAG - ANchor/Cosimo Mag";
-        string inventoryPath = "__SYSTEM/Inventory/Inventory (PickedUp)";
-        string fpsControllerPath = "__SYSTEM/FPS Home/FPSController - Prince";
-        string roomTextPath = "__SYSTEM/HUD/Room Text";
-        string gridPath = "__SYSTEM/THE GRID";
-        string globalManagerPath = "Global Manager";
+        private string documentsPath = "UI OVERLAY CAM/UI Documents/DOCUMENTS";
+        private string uiDocumentsPath = "UI OVERLAY CAM/UI Documents";
+        private string turnButtonsPath = "UI OVERLAY CAM/UI Documents/Page Turn Buttons";
+        private string magnifyGlassPath = "UI OVERLAY CAM/UI Documents/MAG - ANchor/Cosimo Mag";
+        private string inventoryPath = "__SYSTEM/Inventory/Inventory (PickedUp)";
+        private string fpsControllerPath = "__SYSTEM/FPS Home/FPSController - Prince";
+        private string roomTextPath = "__SYSTEM/HUD/Room Text";
+        private string gridPath = "__SYSTEM/THE GRID";
+        private string globalManagerPath = "Global Manager";
 
         public static GameObject uiDocumentsGO;
         public static GameObject turnButtonsGO;
@@ -56,12 +56,10 @@ namespace BPMod_DocumentCollector
         public static GameObject gridGO;
         public static GameObject globalManagerGO;
 
-        //read from csv, I didn't find any great object structure to support searching for the base room name
+        //upgraded room name to base room name mapping read from csv, I didn't find any existing object structure to support searching for the base room name
         //would probably need to go to "THE GRID".current tile.room engine then get parent name? but that's meh
         private string upgradesFilename = "upgradesMetadata.csv";
         public static Dictionary<string, string> upgradeToRoomMap;
-
-        //static Dictionary<String, GameObject> dummyGOsMap = new(); //these exist to replace realworld placed documents to carry object name and to activate/deactivate when opening an UI document
         public static MenuTreeView menuTreeView = new MenuTreeView();
 
         public override void OnInitializeMelon()
@@ -70,11 +68,9 @@ namespace BPMod_DocumentCollector
             foundDocumentIDsList = MelonPreferences.CreateEntry<List<string>>(categoryID, foundDocumentIDsID, new List<string>(), foundDocumentIDsID, "List of found documents");
             LoggerInstance.Msg($"{foundDocumentIDsID} size (in configuration) = {foundDocumentIDsList.Value.Count}");
             foundDocumentIDsSet = new HashSet<string>(foundDocumentIDsList.Value);
-
             keyBindingsJSON = MelonPreferences.CreateEntry<String>(categoryID, keyBindingsID, MiniJsonUtil.ToJson(new KeyBindings()), keyBindingsID, "Menu controls. Default = '{\"activateMenu\":\"L\",\"up\":\"UpArrow\",\"down\":\"DownArrow\",\"right\":\"RightArrow\",\"left\":\"LeftArrow\",\"select\":\"Return\",\"exit\":\"Escape\"}'");
             LoggerInstance.Msg($"{keyBindingsID} = {keyBindingsJSON.Value}");
             keyBindings = MiniJsonUtil.FromJson<KeyBindings>(keyBindingsJSON.Value);
-
             onlyInLibrary = MelonPreferences.CreateEntry<bool>(categoryID, onlyInLibraryID, true, onlyInLibraryID, "Menu only available in the Library. Default = true");
             LoggerInstance.Msg($"{onlyInLibraryID} = {onlyInLibrary.Value}");
             allwaysMagnify = MelonPreferences.CreateEntry<bool>(categoryID, allwaysMagnifyID, false, allwaysMagnifyID, "Allways activate magnifying glass when using the viewer menu. (Even when not picked up.) Default = false");
@@ -84,7 +80,6 @@ namespace BPMod_DocumentCollector
 
             string modFolder = Path.Combine(MelonEnvironment.UserDataDirectory, categoryID);
             string csvPath = Path.Combine(modFolder, documentsFilename);
-
             documentRecordsMap = CSVReader.ReadCSV(csvPath);
             LoggerInstance.Msg($"found records in csv: {documentRecordsMap.Count}");
             documentRecords = documentRecordsMap
@@ -92,7 +87,6 @@ namespace BPMod_DocumentCollector
                        .ThenBy(kvp => kvp.Value.Name)
                        .Select(kvp => kvp.Value)
                        .ToList();
-
             csvPath = Path.Combine(modFolder, upgradesFilename);
             upgradeToRoomMap = CSVReader.ReadUpgradesCSV(csvPath);
         }
@@ -126,8 +120,6 @@ namespace BPMod_DocumentCollector
 
                 Dictionary<string, GameObject> uiDocumentGOsMap = new();
                 GameObject uiDocument;
-                //GameObject dummyParent;
-                //GameObject dummyDocument;
                 Transform parentT = GameObject.Find(documentsPath).transform;
                 for (int i = 0; i < parentT.childCount; i++)
                 {
@@ -137,7 +129,6 @@ namespace BPMod_DocumentCollector
 
                 menuTreeView = new MenuTreeView();
                 menuTreeView.rootNode = new MenuNode().WithLabel("Root").WithExpanded(true);
-                //dummyParent = new GameObject("Dummy documents parent");
                 foreach (DocumentRecord record in documentRecords)
                 {
                     uiDocument = null;
@@ -152,17 +143,12 @@ namespace BPMod_DocumentCollector
                         {
                             uiDocument = uiDocumentGOsMap[record.ID];
                         }
-                    }
-                        
+                    }   
                     if (uiDocument == null)
                     {
                         LoggerInstance.Msg($"Didn't find game document with name {record.ID}");
                         continue;
                     }
-                    //dummyDocument = new GameObject(record.ID);
-                    //dummyDocument.transform.SetParent(dummyParent.transform);
-                    //dummyGOsMap.Add(record.ID, childDocument);
-                    //menuTreeView.AddRecord(record, uiDocument, dummyDocument);
                     menuTreeView.AddRecord(record, uiDocument);
                 }
                 LoggerInstance.Msg($"Created categories in menu: {menuTreeView.rootNode.Children.Count}");
@@ -171,7 +157,8 @@ namespace BPMod_DocumentCollector
 
         public override void OnUpdate()
         {
-            menuTreeView.HandleInput();
+            if(menuTreeView!=null)
+                menuTreeView.HandleInput();
         }
 
         public override void OnGUI()
@@ -184,6 +171,12 @@ namespace BPMod_DocumentCollector
         {
             turnButtonsGO.active = true;
             turnButtonsGO.GetComponent<PlayMakerFSM>().SendEvent("activate");
+        }
+
+        public static void DisableArrows()
+        {
+            turnButtonsGO.GetComponent<PlayMakerFSM>().SendEvent("deactivate");
+            turnButtonsGO.active = false;
         }
 
         public static bool CheckHasMagnifyingGlass()
@@ -199,12 +192,6 @@ namespace BPMod_DocumentCollector
                 }
             }
             return false;
-        }
-
-        public static void DisableArrows()
-        {
-            turnButtonsGO.GetComponent<PlayMakerFSM>().SendEvent("deactivate");
-            turnButtonsGO.active = false;
         }
 
         [HarmonyPatch(typeof(GameObject), "SetActive")]
@@ -233,13 +220,11 @@ namespace BPMod_DocumentCollector
                                 }
                                 recordID = string.Concat(recordID, " - ", room);
                                 if (room.Equals("Classroom")){
-                                    //I forgot I'm looking at the UI document, not the world document, need a different approach
-                                    //var parentName = __instance.transform.parent.gameObject.name;//parents are called MEMO CHECK grade 1..8 + exam
-                                    //most comfortable way I could think of, find it in the game world...
+                                    //most comfortable way I could think of, find what I clicked on in the game world...
                                     var memoCheckGO = FindClosestWithName("MEMO CHECK", fpsControllerGO.transform.position);
                                     if (memoCheckGO!=null)
                                     {
-                                        var parentName = memoCheckGO.name;
+                                        var parentName = memoCheckGO.name;//parents are called "MEMO CHECK grade " + "1..8" or "MEMO CHECK exam" 
                                         recordID = string.Concat(recordID, " ", parentName.AsSpan(parentName.LastIndexOf(' ') + 1));
                                     }
                                 }
@@ -254,7 +239,7 @@ namespace BPMod_DocumentCollector
                                 if (!documentRecordsMap.ContainsKey(recordID))
                                 {
                                     MelonLogger.Msg(loggerModName + $"Couldn't find a record with ID {recordID} inside the metadata csv file. Found document ID will be recorded in config, but won't be displayed in the menu hierarchy.");
-                                    //TODO later - create line in csv file? or too prone to errors...
+                                    //TODO later - create line with record in csv file? or too prone to errors...
                                 }
                                 else
                                 {
@@ -428,7 +413,6 @@ namespace BPMod_DocumentCollector
 
     public class MenuTreeView
     {
-        //view
         public bool menuDisabled = false; //completely disable my custom inputs if opening a document normally to not break anything
         public bool menuOn = false;
         private int selectedIndex = 0;
