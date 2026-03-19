@@ -9,7 +9,7 @@ using UnityEngine;
 
 using static BPMod_DocumentCollector.Mod_DocumentCollector;
 
-[assembly: MelonInfo(typeof(BPMod_DocumentCollector.Mod_DocumentCollector), "BPMod_DocumentCollector", "1.0.0", "Borealum", null)]
+[assembly: MelonInfo(typeof(BPMod_DocumentCollector.Mod_DocumentCollector), "BPMod_DocumentCollector", "1.2.0", "Borealum", null)]
 [assembly: MelonGame("Dogubomb", "BLUE PRINCE")]
 
 namespace BPMod_DocumentCollector
@@ -23,6 +23,9 @@ namespace BPMod_DocumentCollector
         private String foundDocumentIDsID = "BPMod_DocumentCollector_foundDocs";
         private static MelonPreferences_Entry<List<String>> foundDocumentIDsList;
         public static HashSet<String> foundDocumentIDsSet;
+        private String foundDocumentMagIDsID = "BPMod_DocumentCollector_foundDocsMag";//it's just a second list, but best solution for users to just copy the whole config line if they are mid-game
+        private static MelonPreferences_Entry<List<String>> foundDocumentMagIDsList;
+        public static HashSet<String> foundDocumentMagIDsSet;
         private String keyBindingsID = "BPMod_DocumentCollector_keyBindings";
         private static MelonPreferences_Entry<string> keyBindingsJSON;
         public static KeyBindings keyBindings;
@@ -31,8 +34,10 @@ namespace BPMod_DocumentCollector
         public static MelonPreferences_Entry<bool> onlyInLibrary;
         private String showAllDocsID = "BPMod_DocumentCollector_showAllDocs";
         public static MelonPreferences_Entry<bool> showAllDocs;
-        private String allwaysMagnifyID = "BPMod_DocumentCollector_allwaysMagnify";
-        public static MelonPreferences_Entry<bool> allwaysMagnify;
+        private String checkMagInventoryID = "BPMod_DocumentCollector_checkMagInventory";
+        public static MelonPreferences_Entry<bool> checkMagInventory;
+        private string checkMagCollectedDocID = "BPMod_DocumentCollector_checkMagCollectedDoc";
+        public static MelonPreferences_Entry<bool> checkMagCollectedDoc;
 
         private string documentsFilename = "documentsMetadata.csv";
         private static List<DocumentRecord> documentRecords;
@@ -68,13 +73,19 @@ namespace BPMod_DocumentCollector
             foundDocumentIDsList = MelonPreferences.CreateEntry<List<string>>(categoryID, foundDocumentIDsID, new List<string>(), foundDocumentIDsID, "List of found documents");
             LoggerInstance.Msg($"{foundDocumentIDsID} size (in configuration) = {foundDocumentIDsList.Value.Count}");
             foundDocumentIDsSet = new HashSet<string>(foundDocumentIDsList.Value);
+            foundDocumentMagIDsList = MelonPreferences.CreateEntry<List<string>>(categoryID, foundDocumentMagIDsID, new List<string>(), foundDocumentMagIDsID, "List of found documents while holding the magnifying glass");
+            LoggerInstance.Msg($"{foundDocumentMagIDsID} size (in configuration) = {foundDocumentMagIDsList.Value.Count}");
+            foundDocumentMagIDsSet = new HashSet<string>(foundDocumentMagIDsList.Value);
+
             keyBindingsJSON = MelonPreferences.CreateEntry<String>(categoryID, keyBindingsID, MiniJsonUtil.ToJson(new KeyBindings()), keyBindingsID, "Menu controls. Default = '{\"activateMenu\":\"L\",\"up\":\"UpArrow\",\"down\":\"DownArrow\",\"right\":\"RightArrow\",\"left\":\"LeftArrow\",\"select\":\"Return\",\"exit\":\"Escape\"}'");
             LoggerInstance.Msg($"{keyBindingsID} = {keyBindingsJSON.Value}");
             keyBindings = MiniJsonUtil.FromJson<KeyBindings>(keyBindingsJSON.Value);
             onlyInLibrary = MelonPreferences.CreateEntry<bool>(categoryID, onlyInLibraryID, true, onlyInLibraryID, "Menu only available in the Library. Default = true");
             LoggerInstance.Msg($"{onlyInLibraryID} = {onlyInLibrary.Value}");
-            allwaysMagnify = MelonPreferences.CreateEntry<bool>(categoryID, allwaysMagnifyID, false, allwaysMagnifyID, "Allways activate magnifying glass when using the viewer menu. (Even when not picked up.) Default = false");
-            LoggerInstance.Msg($"{allwaysMagnifyID} = {allwaysMagnify.Value}");
+            checkMagInventory = MelonPreferences.CreateEntry<bool>(categoryID, checkMagInventoryID, true, checkMagInventoryID, "Check if magnifying glass is in inventory. Default = true");
+            LoggerInstance.Msg($"{checkMagInventoryID} = {checkMagInventory.Value}");
+            checkMagCollectedDoc = MelonPreferences.CreateEntry<bool>(categoryID, checkMagCollectedDocID, false, checkMagCollectedDocID, "Check if document was previously collected with magnifying glass in inventory. Default = false");
+            LoggerInstance.Msg($"{checkMagCollectedDocID} = {checkMagCollectedDoc.Value}");
             showAllDocs = MelonPreferences.CreateEntry<bool>(categoryID, showAllDocsID, false, showAllDocsID, "Show all* existing in-game documents in the menu. Default = false");
             LoggerInstance.Msg($"{showAllDocsID} = {showAllDocs.Value}");
 
@@ -84,7 +95,7 @@ namespace BPMod_DocumentCollector
             LoggerInstance.Msg($"found records in csv: {documentRecordsMap.Count}");
             documentRecords = documentRecordsMap
                        .OrderBy(kvp => kvp.Value.DocumentCategory)
-                       .ThenBy(kvp => kvp.Value.Name)
+                       .ThenBy(kvp => kvp.Value.Name, new NaturalSortComparer())
                        .Select(kvp => kvp.Value)
                        .ToList();
             csvPath = Path.Combine(modFolder, upgradesFilename);
@@ -150,6 +161,10 @@ namespace BPMod_DocumentCollector
                         continue;
                     }
                     menuTreeView.AddRecord(record, uiDocument);
+                    if(foundDocumentMagIDsSet.Contains(record.ID))
+                    {
+                        menuTreeView.AddMag(record.ID);
+                    }
                 }
                 LoggerInstance.Msg($"Created categories in menu: {menuTreeView.rootNode.Children.Count}");
             }
@@ -179,6 +194,14 @@ namespace BPMod_DocumentCollector
             turnButtonsGO.active = false;
         }
 
+        public static bool CheckEnableMagnifyingGlass(String ID)
+        {
+            bool haveMag = checkMagInventory.Value == false || Mod_DocumentCollector.CheckHasMagnifyingGlass();
+            bool docMag = checkMagCollectedDoc.Value == false || Mod_DocumentCollector.CheckCollectedMagnifiedDocument(ID);
+
+            return haveMag && docMag;
+        }
+
         public static bool CheckHasMagnifyingGlass()
         {
             //probalby there's a better way to do this, but meh
@@ -192,6 +215,11 @@ namespace BPMod_DocumentCollector
                 }
             }
             return false;
+        }
+
+        public static bool CheckCollectedMagnifiedDocument(String ID)
+        {
+            return menuTreeView.CheckMagnified(ID);
         }
 
         [HarmonyPatch(typeof(GameObject), "SetActive")]
@@ -250,7 +278,38 @@ namespace BPMod_DocumentCollector
                                     }
                                     else
                                     {
-                                        menuTreeView.AddRecord(childRecord, __instance);
+                                        if (!Mod_DocumentCollector.showAllDocs.Value)
+                                        {
+                                            menuTreeView.AddRecord(childRecord, __instance);
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (CheckHasMagnifyingGlass())
+                            {
+                                if (!foundDocumentMagIDsSet.Contains(recordID))
+                                {
+                                    MelonLogger.Msg($"saving new mag ID entry into config file: {recordID}");
+                                    foundDocumentMagIDsSet.Add(recordID);
+                                    foundDocumentMagIDsList.Value.Add(recordID);
+                                    //add M symbol to tre hierarchy for the node
+                                    if (!documentRecordsMap.ContainsKey(recordID))
+                                    {
+                                        MelonLogger.Msg(loggerModName + $"Couldn't find a record with ID {recordID} inside the metadata csv file. Found document MAG ID will be recorded in config, but won't be displayed in the menu hierarchy.");
+                                        //TODO later - create line with record in csv file? or too prone to errors...
+                                    }
+                                    else
+                                    {
+                                        DocumentRecord childRecord = documentRecordsMap[recordID];
+                                        if (childRecord.RecordType == DocumentRecordType.DISABLED)
+                                        {
+                                            MelonLogger.Msg(loggerModName + $"Document with ID {recordID} is set as disabled in csv file. Found document MAG ID will be recorded in config, but won't be displayed in the menu hierarchy.");
+                                        }
+                                        else
+                                        {
+                                            menuTreeView.AddMag(childRecord.ID);
+                                        }
                                     }
                                 }
                             }
@@ -364,6 +423,7 @@ namespace BPMod_DocumentCollector
         public List<MenuNode> Children = new();
         public int Depth;
         public bool Expanded = false;
+        public bool Magnified = false;
         public bool IsLeaf => Children.Count == 0;
         public static MenuNode New() => new();
 
@@ -402,6 +462,12 @@ namespace BPMod_DocumentCollector
             return this;
         }
 
+        public MenuNode WithMagnified(bool magnified)
+        {
+            Magnified = magnified;
+            return this;
+        }
+
         public MenuNode AddChild(MenuNode child)
         {
             child.Parent = this;
@@ -433,6 +499,7 @@ namespace BPMod_DocumentCollector
         public MenuNode rootNode;
         public List<MenuNode> visibleNodes = new();
         Dictionary<String, MenuNode> categoryNodesMap = new();
+        Dictionary<String, MenuNode> childNodesMap = new();
 
         public MenuNode FindAddCategory(DocumentRecord documentRecord)
         {
@@ -450,7 +517,20 @@ namespace BPMod_DocumentCollector
         {
             MenuNode categoryNode = FindAddCategory(documentRecord);
             MenuNode childNode = new MenuNode().WithRecord(documentRecord).WithUIDocument(uiDocument);
+            childNodesMap.Add(documentRecord.ID, childNode);
             categoryNode.AddChild(childNode);
+        }
+
+        public void AddMag(String recordID)
+        {
+            childNodesMap[recordID].Magnified = true;
+        }
+
+        public bool CheckMagnified(String recordID)
+        {
+            if (!childNodesMap.ContainsKey(recordID))
+                return false;
+            return childNodesMap[recordID].Magnified;
         }
 
         public void BuildVisibleList(MenuNode node, List<MenuNode> result)
@@ -491,7 +571,16 @@ namespace BPMod_DocumentCollector
                     suffix = " ●";
                 }
                 rect.x += indent;
-                string prefix = node.Children.Count > 0 ? (node.Expanded ? "▼ " : "▶ ") : "  ";
+
+                string prefix = "";
+                if(node.Children.Count > 0)
+                {
+                    prefix = node.Expanded ? "▼ " : "▶ ";
+                }
+                else
+                {
+                    prefix = Mod_DocumentCollector.checkMagCollectedDoc.Value && node.Magnified ? " Ⓜ " : "   ";
+                }
                 GUI.Label(rect, prefix + node.Label + suffix, labelStyle);
             }
             GUILayout.EndScrollView();
@@ -604,8 +693,8 @@ namespace BPMod_DocumentCollector
                 }
                 openedBook.active = true;
                 Mod_DocumentCollector.EnableArrows();
-                bool haveMag = Mod_DocumentCollector.CheckHasMagnifyingGlass();
-                if (haveMag || allwaysMagnify.Value)
+
+                if (CheckEnableMagnifyingGlass(menuNode.DocumentRecord.ID))
                 {
                     //magnifyGlassGO.GetComponent<PlayMakerFSM>().SendEvent("enable");//weird state, not sure how it's supposed to be used
                     magnifyGlassGO.active = true;
@@ -660,6 +749,8 @@ namespace BPMod_DocumentCollector
             }
         }
     }
+
+    //AI slop below
 
     [Serializable]
     public class KeyBindings
@@ -815,6 +906,56 @@ namespace BPMod_DocumentCollector
                 .Replace("\\t", "\t")
                 .Replace("\\\"", "\"")
                 .Replace("\\\\", "\\");
+        }
+    }
+
+    public class NaturalSortComparer : IComparer<string>
+    {
+        public int Compare(string x, string y)
+        {
+            if (x == y) return 0;
+            if (x == null) return -1;
+            if (y == null) return 1;
+
+            int i = 0, j = 0;
+
+            while (i < x.Length && j < y.Length)
+            {
+                if (char.IsDigit(x[i]) && char.IsDigit(y[j]))
+                {
+                    // extract full number from both strings
+                    long numX = 0;
+                    while (i < x.Length && char.IsDigit(x[i]))
+                    {
+                        numX = numX * 10 + (x[i] - '0');
+                        i++;
+                    }
+
+                    long numY = 0;
+                    while (j < y.Length && char.IsDigit(y[j]))
+                    {
+                        numY = numY * 10 + (y[j] - '0');
+                        j++;
+                    }
+
+                    int result = numX.CompareTo(numY);
+                    if (result != 0)
+                        return result;
+                }
+                else
+                {
+                    // compare characters (case-insensitive)
+                    int result = char.ToLower(x[i]).CompareTo(char.ToLower(y[j]));
+                    if (result != 0)
+                        return result;
+
+                    i++;
+                    j++;
+                }
+            }
+
+            // shorter string first if all equal so far
+            return x.Length.CompareTo(y.Length);
         }
     }
 }
